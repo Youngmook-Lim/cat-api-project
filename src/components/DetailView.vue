@@ -1,5 +1,5 @@
 <template>
-  <div class="container detail" v-if="idx !== -1">
+  <div class="container detail">
     <h2>{{ curCat.name }}</h2>
     <div class="container text-center">
       <div class="row align-items-center">
@@ -49,10 +49,15 @@
             </tbody>
           </table>
           <div class="d-flex justify-content-around">
-            <router-link to="/photos" class="btn btn-outline-info"
+            <router-link
+              :to="{
+                name: 'photos',
+                params: { breed: curCat.id },
+              }"
+              class="btn btn-outline-info"
               >사진 더보기</router-link
             >
-            <button class="btn btn-outline-warning">찜하기</button>
+            <!-- <button class="btn btn-outline-warning">찜하기</button> -->
           </div>
         </div>
       </div>
@@ -88,8 +93,8 @@ export default {
   },
   methods: {
     sendCatDataSize() {
-      // console.log(this.catData.length);
-      this.$emit("getCatDataSize", this.catData.length);
+      console.log(this.catData.length);
+      this.$parent.$emit("getCatDataSize", this.catData.length);
     },
     getStars(n) {
       const str = "⭐".repeat(n);

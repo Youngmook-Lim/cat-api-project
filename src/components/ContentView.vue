@@ -3,20 +3,27 @@
     <h4 class="my-4">
       아래의 버튼을 클릭하여 당신의 운명의 고양이를 만나보세요!
     </h4>
-    <button
+    <!-- <router-link
+      :to="{
+        name: 'detail',
+        params: { idx: randomNumber },
+      }"
       :disabled="disabled"
       class="mb-4 btn btn-outline-dark"
-      @click="getRandomNumber"
+      @click.native="getRandomNumber"
     >
       클릭
-    </button>
-    <DetailView @getCatDataSize="setRandomNumber" :idx="randomNumber" />
-    <router-view></router-view>
+    </router-link> -->
+    <a class="mb-4 btn btn-outline-dark" @click="getRandomNumber"
+      >새로운 고양이 보기</a
+    >
+    <!-- <DetailView :idx="randomNumber" /> -->
+    <router-view />
   </div>
 </template>
 
 <script>
-import DetailView from "@/components/DetailView.vue";
+// import DetailView from "@/components/DetailView.vue";
 export default {
   name: "ContentView",
   data() {
@@ -27,7 +34,13 @@ export default {
     };
   },
   components: {
-    DetailView,
+    // DetailView,
+  },
+  created() {
+    this.$on("getCatDataSize", (data) => {
+      console.log(data);
+      return this.setRandomNumber(data);
+    });
   },
   methods: {
     setRandomNumber(data) {
@@ -36,9 +49,16 @@ export default {
       if (this.disabled === true) {
         this.disabled = false;
       }
+      this.getRandomNumber();
     },
     getRandomNumber() {
+      console.log(this.catDataSize);
       this.randomNumber = Math.floor(Math.random() * this.catDataSize);
+      console.log(this.randomNumber);
+      this.$router.push({
+        name: "detail",
+        params: { idx: this.randomNumber },
+      });
     },
   },
 };

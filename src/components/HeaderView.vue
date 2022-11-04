@@ -1,5 +1,5 @@
 <template>
-  <div class="header p-2">
+  <div class="header p-2 pt-4">
     <h1>{{ msg }}</h1>
   </div>
 </template>
@@ -15,7 +15,7 @@ export default {
 
 <style>
 .header {
-  color: #2c3e50;
-  background-color: #42b983;
+  color: white;
+  background-color: #1d1e2c;
 }
 </style>

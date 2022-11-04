@@ -1,23 +1,30 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import PhotosView from "../components/PhotosView.vue";
+import ContentView from "../components/ContentView.vue";
+import DetailView from "@/components/DetailView.vue";
+import PhotosView from "@/components/PhotosView.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "home",
-    component: HomeView,
-  },
-  {
-    path: "/photos",
-    name: "photos",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: PhotosView,
+    name: "contentView",
+    component: ContentView,
+    children: [
+      {
+        name: "detail",
+        path: "detail/:idx",
+        component: DetailView,
+        props: true,
+      },
+      {
+        name: "photos",
+        path: "photos/:breed",
+        component: PhotosView,
+        props: true,
+      },
+    ],
   },
 ];
 
