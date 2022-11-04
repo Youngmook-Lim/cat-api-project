@@ -1,8 +1,6 @@
 <template>
   <div class="content container">
-    <h4 class="my-4">
-      아래의 버튼을 클릭하여 당신의 운명의 고양이를 만나보세요!
-    </h4>
+    <h4 class="my-4">당신의 운명의 고양이를 만나보세요!</h4>
     <!-- <router-link
       :to="{
         name: 'detail',

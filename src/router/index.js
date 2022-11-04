@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import ContentView from "../components/ContentView.vue";
+import ContentView from "../views/ContentView.vue";
 import DetailView from "@/components/DetailView.vue";
 import PhotosView from "@/components/PhotosView.vue";
 

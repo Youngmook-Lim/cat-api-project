@@ -38,10 +38,10 @@
                 <th scope="row">지능</th>
                 <th>{{ getStars(curCat.intelligence) }}</th>
               </tr>
-              <tr>
+              <!-- <tr>
                 <th scope="row">건강이슈</th>
                 <th>{{ getStars(curCat.health_issues) }}</th>
-              </tr>
+              </tr> -->
               <tr>
                 <th scope="row">털갈이</th>
                 <th>{{ getStars(curCat.shedding_level) }}</th>
@@ -110,8 +110,4 @@ export default {
 };
 </script>
 
-<style>
-/* .container {
-  display: flex;
-} */
-</style>
+<style></style>

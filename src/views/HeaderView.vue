@@ -1,6 +1,6 @@
 <template>
   <div class="header p-2 pt-4">
-    <h1>{{ msg }}</h1>
+    <h1 @click="moveToHome">{{ msg }}</h1>
   </div>
 </template>
 
@@ -10,6 +10,11 @@ export default {
   props: {
     msg: String,
   },
+  methods: {
+    moveToHome() {
+      this.$router.push("/");
+    },
+  },
 };
 </script>
 
@@ -17,5 +22,9 @@ export default {
 .header {
   color: white;
   background-color: #1d1e2c;
+}
+
+h1 {
+  cursor: pointer;
 }
 </style>
