@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="mb-3">{{ catData[0].breeds[0].name }}의 사진모음</h2>
+    <h2 class="mb-3">{{ catData[0].breeds[0].name }}의 갤러리</h2>
     <div class="container text-center">
       <div class="row row-cols-3">
         <div class="col" v-for="cat in catData" :key="cat.id">
